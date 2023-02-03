@@ -14,6 +14,12 @@ First build the conda environment based on the yaml file:
 conda env create --file environment.yml
 ```
 
+If you meet error when install torch, just remote torch and torchvision, rerun the above command, and run the below commands:
+
+```
+pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+```
+
 Then install our version of fairseq:
 
 ```
