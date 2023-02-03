@@ -1,4 +1,4 @@
-name: tnn
+name: transnormer
 channels:
   - defaults
 dependencies:
@@ -26,23 +26,17 @@ dependencies:
     - antlr4-python3-runtime==4.8
     - cffi==1.15.1
     - charset-normalizer==2.0.12
-    - clean-text==0.5.0
-    - click==8.0.4
     - colorama==0.4.5
     - cython==0.29.32
     - dataclasses==0.8
     - einops==0.4.1
-    - emoji==2.2.0
     - filelock==3.4.1
-    - files2rouge==2.1.0
-    - ftfy==6.0.3
     - huggingface-hub==0.4.0
     - hydra-core==1.0.7
     - idna==3.4
     - importlib-metadata==4.8.3
     - importlib-resources==5.4.0
     - jieba==0.42.1
-    - joblib==1.1.1
     - lxml==4.9.1
     - numpy==1.19.5
     - omegaconf==2.0.6
@@ -50,27 +44,20 @@ dependencies:
     - opt-einsum==3.3.0
     - packaging==21.3
     - pillow==8.4.0
-    - portalocker==2.0.0
+    - portalocker==2.5.1
     - pycparser==2.21
     - pyparsing==3.0.9
     - pyyaml==6.0
     - regex==2022.9.13
     - requests==2.27.1
-    - rouge==1.0.1
-    - sacrebleu==1.5.1
-    - sacremoses==0.0.53
-    - scikit-learn==0.24.2
+    - sacrebleu==2.2.1
     - scipy==1.5.4
     - sentencepiece==0.1.97
-    - six==1.16.0
-    - sklearn==0.0.post1
     - tabulate==0.8.10
-    - threadpoolctl==3.1.0
     - timm==0.4.12
     - torch==1.8.1+cu111
     - torchvision==0.9.1
     - tqdm==4.64.1
     - typing-extensions==4.1.1
     - urllib3==1.26.12
-    - wcwidth==0.2.5
     - zipp==3.6.0
