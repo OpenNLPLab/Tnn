@@ -1,4 +1,4 @@
-name: transnormer
+name: tnn
 channels:
   - defaults
 dependencies:

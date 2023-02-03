@@ -39,4 +39,4 @@ fairseq-train --task language_modeling \
     --max-tokens $MAX_TOKEN --update-freq $UPDATE_FREQ \
     --ddp-backend=legacy_ddp \
     --batch-size $BATCH_SIZE \
-    --max-update $MAX_UPDATE
+    --max-update $MAX_UPDATE --log-interval 10 2>&1 | tee $ARCH.log
