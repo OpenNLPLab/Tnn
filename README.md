@@ -1,6 +1,6 @@
 # TNN
 
-Official implementation of Transnormer in our ICLR 2023 paper - [Toeplitz Neural Network for Sequence Modeling](https://openreview.net/forum?id=IxmWsm4xrua). This repo does not contain specific codes, but only scripts and some instructions on how to reproduce the results of the paper. The overall directory is as follows:
+Official implementation of Toeplitz Neural Network in our ICLR 2023 paper - [Toeplitz Neural Network for Sequence Modeling](https://openreview.net/forum?id=IxmWsm4xrua). This repo does not contain specific codes, but only scripts and some instructions on how to reproduce the results of the paper. The overall directory is as follows:
 
 
 - [TNN](#tnn)
@@ -41,23 +41,23 @@ The overall network architecture is as follows:
 
 ### Environments Preparation
 
-Our experiment uses two conda environments, where Autoregressive language modeling, Bidirectional language modeling and Image modeling needs to configure the environment according to the Env1 part, and Long Range Arena Benchmark needs to configure the environment according to the Env2 part.
+Our experiment uses two conda environments, where Autoregressive language modeling, Bidirectional language modeling, and Image modeling need to configure the environment according to the Env1 part, and Long Range Arena Benchmark needs to configure the environment according to the Env2 part.
 
 #### Env1
 
-First build the conda environment based on the yaml file:
+First, build the conda environment based on the yaml file:
 
 ```
 conda env create --file env1.yaml
 ```
 
-If you meet error when install torch, just remove torch and torchvision in the yaml file, rerun the above command, and then run the below commands:
+If you meet an error when installing torch, just remove torch and torchvision in the yaml file, rerun the above command, and then run the below commands:
 
 ```
 pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
-Finally install our version of fairseq:
+Finally, install our version of fairseq:
 
 ```
 git clone https://github.com/OpenNLPLab/fairseq-evo.git
@@ -88,7 +88,7 @@ wget https://s3.amazonaws.com/research.metamind.io/wikitext/wikitext-103-raw-v1.
 unzip wikitext-103-raw-v1.zip
 ```
 
-Next encode it with the GPT-2 BPE:
+Next, encode it with the GPT-2 BPE:
 
 ```
 mkdir -p gpt2_bpe
@@ -105,7 +105,7 @@ for SPLIT in train valid test; do \
 done
 ```
 
-Finally preprocess/binarize the data using the GPT-2 fairseq dictionary:
+Finally, preprocess/binarize the data using the GPT-2 fairseq dictionary:
 
 ```
 wget -O gpt2_bpe/dict.txt https://dl.fbaipublicfiles.com/fairseq/gpt2_bpe/dict.txt
@@ -125,19 +125,19 @@ This step comes from [fairseq](https://github.com/facebookresearch/fairseq/blob/
 
 #### 2) Train the autoregressive language model
 
-Use the following command to train autoregressive language model:
+Use the following command to train the autoregressive language model:
 
 ```
 bash script_alm.sh
 ```
 
-You should change data_dir to the preprocessed data.
+You should change data_dir to preprocessed data.
 
 
 
 #### 3) Length extrapolation
 
-After training, you can do length extrapolation test by the following command, where length is the test length, e.g. 512, 1024,....:
+After training, you can do a length extrapolation test by the following command, where length is the test length, e.g. 512, 1024,....:
 
 ```
 bash length_extrapolation.sh tnn_v2_decay_99_pre length
@@ -151,19 +151,19 @@ bash length_extrapolation.sh tnn_v2_decay_99_pre length
 
 #### 1) Preprocess the data
 
-The same as Autoregressive language model part.
+The same as the autoregressive language model part.
 
 
 
 #### 2) Train the bidirectional language model
 
-Use the following command to train bidirectional language model:
+Use the following command to train the bidirectional language model:
 
 ```
 bash script_blm.sh
 ```
 
-You should change data_dir to the preprocessed data.
+You should change data_dir to preprocessed data.
 
 
 
@@ -209,7 +209,7 @@ git clone https://github.com/OpenNLPLab/lra.gits
 
 #### 2) Training
 
-Use the follow script to run the exeriments, you should change `PREFIX` to your lra path, change `tasks` to a specific task, for aan, imdb and listops, the `archs` should be `tno`, for other tasks, the `archs` should be `tno2d`:
+Use the following script to run the experiments, you should change `PREFIX` to your lra path, and change `tasks` to a specific task, for aan, imdb and listops, the `archs` should be `tno`, for other tasks, the `archs` should be `tno2d`:
 
 ```
 python script_lra.py
@@ -248,7 +248,7 @@ url={https://openreview.net/forum?id=IxmWsm4xrua}
 
 ## Wip
 
-- [ ] Check training script.
+- [ ] Check the training script.
 - [ ] Update tnn-pytorch.
 
 
