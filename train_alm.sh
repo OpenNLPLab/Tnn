@@ -1,35 +1,23 @@
+#! /usr/bin/bash
 
-
-BATCH_SIZE=1
-# 64 oom
-BATCH_SIZE=64 
-# 32 oom
-BATCH_SIZE=32
-BATCH_SIZE=24
-BATCH_SIZE=4
 BATCH_SIZE=8
 TOKENS_PER_SAMPLE=512
 MAX_TOKEN=$((TOKENS_PER_SAMPLE*BATCH_SIZE))
-DATA_DIR=$8
+DATA_DIR=$3
 ARCH=$2
 prefix=lm
 MAX_UPDATE=50000
 WARM_UP=4000
-# WARM_UP=2000
 UPDATE_FREQ=$(( 128 / $BATCH_SIZE / $1 ))
 PORT=$(( $RANDOM + 2000 ))
 echo $PORT
-# 调整
 LR=0.0005
-LR=$4
-CLIP_NORM=$5
-NAME=$3
-TYPE=$6
-decay=$7
+CLIP_NORM=1.0
+decay=0.2
 
 fairseq-train --task language_modeling \
     $DATA_DIR \
-    --save-dir checkpoints/$prefix/512_5w_large_decay_${decay}_${ARCH}_${LR} \
+    --save-dir checkpoints/$prefix/${ARCH} \
     --distributed-world-size $1  --distributed-port $PORT \
     --arch $ARCH --share-decoder-input-output-embed \
     --dropout 0.1 \

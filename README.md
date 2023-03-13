@@ -1,31 +1,57 @@
 # TNN
 
+Official implementation of Transnormer in our ICLR 2023 paper - [Toeplitz Neural Network for Sequence Modeling](https://openreview.net/forum?id=IxmWsm4xrua).
+
+
+
+[TOC]
+
+
+
+## Network Architecture
+
+The overall network architecture is as follows:
+
+![](./network.png)
+
+
+
 ## Experiments
 
-### Environment Preparation
+### Environments Preparation
 
-Our experiment uses two conda environments, where Autoregressive language modeling, Bidirectional language modeling needs to configure the environment according to the NLP part, and Long Range Arena Benchmark needs to configure the environment according to the LRA part.
+Our experiment uses two conda environments, where Autoregressive language modeling, Bidirectional language modeling and Image modeling needs to configure the environment according to the Env1 part, and Long Range Arena Benchmark needs to configure the environment according to the Env2 part.
 
-#### NLP
+#### Env1
 
 First build the conda environment based on the yaml file:
 
 ```
-conda env create --file environment.yml
+conda env create --file env1.yaml
 ```
 
-If you meet error when install torch, just remote torch and torchvision, rerun the above command, and run the below commands:
+If you meet error when install torch, just remove torch and torchvision in the yaml file, rerun the above command, and then run the below commands:
 
 ```
 pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
-Then install our version of fairseq:
+Finally install our version of fairseq:
 
 ```
 git clone https://github.com/OpenNLPLab/fairseq-evo.git
 cd fairseq
 pip install --editable ./
+```
+
+
+
+#### Env2
+
+Build the conda environment based on the yaml file:
+
+```
+conda env create --file env2.yaml
 ```
 
 
@@ -78,11 +104,131 @@ This step comes from [fairseq](https://github.com/facebookresearch/fairseq/blob/
 
 #### 2) Train the autoregressive language model
 
-Use the following command to train language model:
+Use the following command to train autoregressive language model:
 
 ```
-bash script.sh
+bash script_alm.sh
 ```
+
+You should change data_dir to the preprocessed data.
+
+
+
+#### 3) Length extrapolation
+
+After training, you can do length extrapolation test by the following command, where length is the test length, e.g. 512, 1024,....:
+
+```
+bash length_extrapolation.sh tnn_v2_decay_99_pre length
+```
+
+
+
+
+
+### Bidirectional language model
+
+#### 1) Preprocess the data
+
+The same as Autoregressive language model part.
+
+
+
+#### 2) Train the bidirectional language model
+
+Use the following command to train bidirectional language model:
+
+```
+bash script_blm.sh
+```
+
+You should change data_dir to the preprocessed data.
+
+
+
+#### 3) Finetuning
+
+Please refer to the [official Fairseq script](https://github.com/facebookresearch/fairseq/blob/main/examples/roberta/README.glue.md).
+
+
+
+### Image modeling
+
+#### 1) Preparation
+
+Download the codebase:
+
+```
+git clone https://github.com/OpenNLPLab/im.git
+```
+
+
+
+#### 2) Training
+
+Use the following command for training:
+
+```
+bash script_im.sh
+```
+
+
+
+### LRA
+
+#### 1) Preparation
+
+Download the codebase:
+
+```
+git clone https://github.com/OpenNLPLab/lra.gits
+```
+
+
+
+#### 2) Training
+
+Use the follow script to run the exeriments, you should change `PREFIX` to your lra path, change `tasks` to a specific task, for aan, imdb and listops, the `archs` should be `tno`, for other tasks, the `archs` should be `tno2d`:
+
+```
+python script_lra.py
+```
+
+
+
+## Standalone code
+
+For those of you who want to use tnn in your projects, you can install tnn-pytorch:
+
+```
+$ pip install tnn-pytorch
+```
+
+The code base is at the following address, you can adapt it as needed:
+
+- [https://github.com/Doraemonzzz/tnn-pytorch](https://github.com/Doraemonzzz/tnn-pytorch)
+
+
+
+## Citation
+
+```
+@inproceedings{
+qin2023toeplitz,
+title={Toeplitz Neural Network for Sequence Modeling},
+author={Zhen Qin and Xiaodong Han and Weixuan Sun and Bowen He and Dong Li and Dongxu Li and Yuchao Dai and Lingpeng Kong and Yiran Zhong},
+booktitle={The Eleventh International Conference on Learning Representations },
+year={2023},
+url={https://openreview.net/forum?id=IxmWsm4xrua}
+}
+```
+
+
+
+## Wip
+
+- [ ] Check training script.
+- [ ] Update tnn-pytorch.
 
 
 
