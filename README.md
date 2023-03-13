@@ -1,10 +1,31 @@
 # TNN
 
-Official implementation of Transnormer in our ICLR 2023 paper - [Toeplitz Neural Network for Sequence Modeling](https://openreview.net/forum?id=IxmWsm4xrua).
+Official implementation of Transnormer in our ICLR 2023 paper - [Toeplitz Neural Network for Sequence Modeling](https://openreview.net/forum?id=IxmWsm4xrua). This repo does not contain specific codes, but only scripts and some instructions on how to reproduce the results of the paper. The overall directory is as follows:
 
 
-
-[TOC]
+- [TNN](#tnn)
+  - [Network Architecture](#network-architecture)
+  - [Experiments](#experiments)
+    - [Environments Preparation](#environments-preparation)
+      - [Env1](#env1)
+      - [Env2](#env2)
+    - [Autoregressive language model](#autoregressive-language-model)
+      - [1) Preprocess the data](#1-preprocess-the-data)
+      - [2) Train the autoregressive language model](#2-train-the-autoregressive-language-model)
+      - [3) Length extrapolation](#3-length-extrapolation)
+    - [Bidirectional language model](#bidirectional-language-model)
+      - [1) Preprocess the data](#1-preprocess-the-data-1)
+      - [2) Train the bidirectional language model](#2-train-the-bidirectional-language-model)
+      - [3) Finetuning](#3-finetuning)
+    - [Image modeling](#image-modeling)
+      - [1) Preparation](#1-preparation)
+      - [2) Training](#2-training)
+    - [LRA](#lra)
+      - [1) Preparation](#1-preparation-1)
+      - [2) Training](#2-training-1)
+  - [Standalone code](#standalone-code)
+  - [Citation](#citation)
+  - [Wip](#wip)
 
 
 
