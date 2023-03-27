@@ -1,8 +1,7 @@
-#!/usr/bin/env bash
-
 export HYDRA_FULL_ERROR=1
-export DATA_PATH=PATH_TO_LRA_DATA
-program_path=PATH_TO_LRA_DIR
+export DATA_PATH=path_to_your_lra_dir
+
+program_path=path_to_your_lra_dir
 
 TASK=$1
 ARCH=$2
@@ -32,8 +31,9 @@ loader.batch_size=${BS} \
 loader.num_workers=${n_works} \
 scheduler.num_warmup_steps=${warmup_steps} \
 optimizer.lr=${lr} optimizer.weight_decay=${wd} \
-model.n_layers=${N_LAYERS} model.d_model=${D_MODEL} model.tno_dpb_dim=${GTU_DPB_DIM} \
+model.n_layers=${N_LAYERS} model.d_model=${D_MODEL} \
 model.norm=${NORM} model.prenorm=${PRENORM} train.seed=2222 \
-model.expand_ratio_tno=${EXPAND_RATIO_GTU} model.expand_ratio_glu=${EXPAND_RATIO_GLU} \
-model.tno_use_decay=True model.tno_gamma=${GTU_GAMMA} \
-model.dropout=${dropout} model.dpb_type=${dpb_type} model.dpb_layers=${dpb_layers}
+model.gtu_rpe_dim=${GTU_DPB_DIM} \
+model.expand_ratio_gtu=${EXPAND_RATIO_GTU} model.expand_ratio_glu=${EXPAND_RATIO_GLU} \
+model.gtu_use_decay=True model.gtu_gamma=${GTU_GAMMA} \
+model.dropout=${dropout}

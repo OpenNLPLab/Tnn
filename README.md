@@ -41,7 +41,7 @@ The overall network architecture is as follows:
 
 ### Environments Preparation
 
-Our experiment uses two conda environments, where Autoregressive language modeling, Bidirectional language modeling, and Image modeling need to configure the environment according to the Env1 part, and Long Range Arena Benchmark needs to configure the environment according to the Env2 part.
+Our experiment uses two conda environments, where Autoregressive language modeling, Bidirectional language modeling, and Image modeling need to configure the environment according to the Env1 part, and LRA needs to configure the environment according to the Env2 part.
 
 #### Env1
 
