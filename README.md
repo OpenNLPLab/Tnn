@@ -23,6 +23,7 @@ Official implementation of Toeplitz Neural Network in our ICLR 2023 paper - [Toe
     - [LRA](#lra)
       - [1) Preparation](#1-preparation-1)
       - [2) Training](#2-training-1)
+    - [Speed test](#speed-test)
   - [Standalone code](#standalone-code)
   - [Citation](#citation)
   - [Wip](#wip)
@@ -55,6 +56,7 @@ If you meet an error when installing torch, just remove torch and torchvision in
 
 ```
 pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
+pip install -r requirements_tnn.txt
 ```
 
 Finally, install our version of fairseq:
@@ -74,7 +76,10 @@ Build the conda environment based on the yaml file:
 ```
 conda env create --file env2.yaml
 ```
-
+If you encounter difficulties in setting up the environment, you can install the conda environment first, and then use the following command to install the pip packages:
+```
+pip install -r requirements_lra.txt
+```
 
 
 ### Autoregressive language model
@@ -215,7 +220,9 @@ Use the following script to run the experiments, you should change `PREFIX` to y
 python script_lra.py
 ```
 
+### Speed test
 
+For Figure 1, we used the imdb task from lra benchmark for testing, and the config is tno-lra-imdb.yaml, and other models can adjust the model size according to this configuration. (we are cleaning up the code)
 
 ## Standalone code
 
