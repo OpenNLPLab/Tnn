@@ -110,10 +110,10 @@ dependencies:
     - tokenizers==0.12.1
     - torch==1.10.0+cu111
     - torch-tb-profiler==0.4.0
-    - torchaudio==0.10.0+cu102
+    - torchaudio==0.10.0
     - torchmetrics==0.9.3
     - torchtext==0.11.0
-    - torchvision==0.11.0+cu111
+    - torchvision==0.11.1
     - tqdm==4.64.0
     - transformers==4.21.1
     - typing-extensions==4.3.0
