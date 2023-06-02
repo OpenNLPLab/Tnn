@@ -78,6 +78,7 @@ conda env create --file env2.yaml
 ```
 If you encounter difficulties in setting up the environment, you can install the conda environment first, and then use the following command to install the pip packages:
 ```
+pip install torch==1.10.0+cu111 torchvision==0.11.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html
 pip install -r requirements_lra.txt
 ```
 
