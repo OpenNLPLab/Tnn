@@ -211,6 +211,14 @@ Download the codebase:
 git clone https://github.com/OpenNLPLab/lra.gits
 ```
 
+Download the data:
+
+```
+wget https://storage.googleapis.com/long-range-arena/lra_release.gz
+mv lra_release.gz lra_release.tar.gz 
+tar -xvf lra_release.tar.gz
+```
+
 
 
 #### 2) Training
