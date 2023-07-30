@@ -18,7 +18,7 @@ decay=0.2
 fairseq-train --task language_modeling \
     $DATA_DIR \
     --save-dir checkpoints/$prefix/${ARCH} \
-    --distributed-world-size $1  --distributed-port $PORT \
+    --distributed-world-size $1 \
     --arch $ARCH --share-decoder-input-output-embed \
     --dropout 0.1 \
     --optimizer adam --adam-betas '(0.9, 0.98)' --weight-decay $decay --clip-norm $CLIP_NORM \

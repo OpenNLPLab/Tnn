@@ -137,7 +137,7 @@ Use the following command to train the autoregressive language model:
 bash script_alm.sh
 ```
 
-You should change data_dir to preprocessed data.
+You should change data_dir to preprocessed data. If you are using a slurm cluster, please add `--distributed-port $PORT` to fairseq-train's parameter.
 
 
 
@@ -169,7 +169,7 @@ Use the following command to train the bidirectional language model:
 bash script_blm.sh
 ```
 
-You should change data_dir to preprocessed data.
+You should change data_dir to preprocessed data. If you are using a slurm cluster, please add `--distributed-port $PORT` to fairseq-train's parameter.
 
 
 

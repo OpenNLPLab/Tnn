@@ -16,7 +16,7 @@ UPDATE_FREQ=$(( 512 / $MAX_SENTENCES / $GPUS ))
 
 fairseq-train $DATA_DIR \
     --task masked_lm --criterion masked_lm \
-    --distributed-world-size $1  --distributed-port $PORT \
+    --distributed-world-size $1 \
     --save-dir checkpoints/$prefix/$ARCH \
     --arch $ARCH --sample-break-mode complete --tokens-per-sample $TOKENS_PER_SAMPLE \
     --optimizer adam --adam-betas '(0.9,0.98)' --adam-eps 1e-6 --clip-norm $CLIP_NORM \
